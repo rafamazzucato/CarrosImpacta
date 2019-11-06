@@ -12,6 +12,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import android.view.Menu
 import br.com.impacta.kotlin.carrosimpacta.R
+import br.com.impacta.kotlin.carrosimpacta.extensions.onClick
+import br.com.impacta.kotlin.carrosimpacta.extensions.setupToolbar
 
 class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedListener {
 
@@ -19,10 +21,8 @@ class MainActivity : BaseActivity(), NavigationView.OnNavigationItemSelectedList
 
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        val toolbar = setupToolbar(R.id.toolbar)
 
-
-        val toolbar: Toolbar = findViewById(R.id.toolbar)
-        setSupportActionBar(toolbar)
 
         val fab: FloatingActionButton = findViewById(R.id.fab)
         fab.setOnClickListener { view ->
