@@ -1,8 +1,6 @@
 package br.com.impacta.kotlin.carrosimpacta.activities
 
 import android.os.Bundle
-import android.os.PersistableBundle
-import androidx.appcompat.app.AppCompatActivity
 import br.com.impacta.kotlin.carrosimpacta.R
 import br.com.impacta.kotlin.carrosimpacta.enums.TipoCarro
 import br.com.impacta.kotlin.carrosimpacta.extensions.setupToolbar

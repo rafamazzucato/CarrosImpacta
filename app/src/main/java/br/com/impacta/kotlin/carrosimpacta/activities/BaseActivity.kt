@@ -9,10 +9,11 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.GravityCompat
 import br.com.impacta.kotlin.carrosimpacta.R
 import br.com.impacta.kotlin.carrosimpacta.enums.TipoCarro
-import br.com.impacta.kotlin.carrosimpacta.extensions.toast
 import com.google.android.material.navigation.NavigationView
 import kotlinx.android.synthetic.main.activity_main.*
 import kotlinx.android.synthetic.main.include_toolbar.*
+import org.jetbrains.anko.startActivity
+import org.jetbrains.anko.toast
 
 @SuppressLint("Registered")
 open class BaseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelectedListener {
@@ -21,19 +22,13 @@ open class BaseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_item_carros_classicos -> {
-                val intent = Intent(context, CarrosActivity::class.java)
-                intent.putExtra("tipo", TipoCarro.CLASSICOS)
-                startActivity(intent)
+                startActivity<CarrosActivity>("tipo" to TipoCarro.CLASSICOS)
             }
             R.id.nav_item_carros_esportivos -> {
-                val intent = Intent(context, CarrosActivity::class.java)
-                intent.putExtra("tipo", TipoCarro.ESPORTIVOS)
-                startActivity(intent)
+                startActivity<CarrosActivity>("tipo" to TipoCarro.ESPORTIVOS)
             }
             R.id.nav_item_carros_luxo -> {
-                val intent = Intent(context, CarrosActivity::class.java)
-                intent.putExtra("tipo", TipoCarro.LUXO)
-                startActivity(intent)
+                startActivity<CarrosActivity>("tipo" to TipoCarro.LUXO)
             }
             R.id.nav_item_carros_todos -> {
                 toast("Todos")

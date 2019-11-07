@@ -16,14 +16,6 @@ fun Activity.onClick(@IdRes viewId : Int, onClick : (v : View?) -> Unit){
     view.setOnClickListener{ onClick(it)}
 }
 
-fun Activity.toast(message : CharSequence, length : Int = Toast.LENGTH_SHORT){
-    Toast.makeText(this, message, length).show()
-}
-
-fun Activity.toast(@StringRes message: Int, length : Int = Toast.LENGTH_SHORT){
-    Toast.makeText(this, message, length).show()
-}
-
 fun AppCompatActivity.setupToolbar(@IdRes viewId : Int, title : String? = null, upNavigationBar : Boolean = false) : ActionBar {
     val toolbar = findViewById<Toolbar>(viewId)
     setSupportActionBar(toolbar)
