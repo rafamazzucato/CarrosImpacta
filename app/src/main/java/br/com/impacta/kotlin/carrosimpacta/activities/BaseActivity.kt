@@ -37,7 +37,7 @@ open class BaseActivity : AppCompatActivity(), NavigationView.OnNavigationItemSe
                 toast("Configurações")
             }
             R.id.nav_item_site_livro -> {
-                toast("Site Livro")
+                startActivity<SiteLivroActivity>()
             }
         }
         drawerLayout.closeDrawer(GravityCompat.START)

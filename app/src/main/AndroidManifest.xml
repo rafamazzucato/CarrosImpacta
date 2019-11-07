@@ -2,7 +2,10 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="br.com.impacta.kotlin.carrosimpacta" >
 
+    <uses-permission android:name="android.permission.INTERNET"/>
+
     <application
+            android:usesCleartextTraffic="true"
             android:name=".CarrosApplication"
             android:allowBackup="true"
             android:icon="@mipmap/ic_launcher"
@@ -16,12 +19,13 @@
             android:theme="@style/AppTheme.NavDrawer" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
         <activity android:name=".activities.CarrosActivity"
                   android:parentActivityName=".activities.MainActivity"/>
+        <activity android:name=".activities.SiteLivroActivity"
+                  android:parentActivityName=".activities.MainActivity" />
     </application>
 
 </manifest>
