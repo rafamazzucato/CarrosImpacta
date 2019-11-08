@@ -4,9 +4,11 @@ import android.content.Intent
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.view.View
+import android.webkit.WebResourceRequest
 import android.webkit.WebView
 import android.webkit.WebViewClient
 import br.com.impacta.kotlin.carrosimpacta.R
+import br.com.impacta.kotlin.carrosimpacta.activities.dialogs.SobreDialog
 import br.com.impacta.kotlin.carrosimpacta.extensions.setupToolbar
 import kotlinx.android.synthetic.main.activity_site_livro.*
 
@@ -19,6 +21,15 @@ class SiteLivroActivity : BaseActivity() {
         setContentView(R.layout.activity_site_livro)
         setupToolbar(R.id.toolbar, "Sobre o Livro", true)
         setWebViewClient()
+
+        swipeToRefreshSite.setOnRefreshListener {
+            webViewSiteLivros.reload()
+        }
+
+        swipeToRefreshSite.setColorSchemeResources(
+            R.color.refresh_progress_1,
+            R.color.refresh_progress_2,
+            R.color.refresh_progress_3)
     }
 
     private fun setWebViewClient(){
@@ -31,6 +42,18 @@ class SiteLivroActivity : BaseActivity() {
             override fun onPageFinished(view: WebView?, url: String?) {
                 super.onPageFinished(view, url)
                 progressBarSiteLivros.visibility = View.GONE
+                swipeToRefreshSite.isRefreshing = false
+            }
+
+            override fun shouldOverrideUrlLoading(view: WebView?, request: WebResourceRequest?): Boolean {
+                val url = request?.url.toString()
+
+                if(url.endsWith("sobre.htm")){
+                    SobreDialog.showSobre(supportFragmentManager)
+                    return true
+                }
+
+                return super.shouldOverrideUrlLoading(view, request)
             }
         }
 
