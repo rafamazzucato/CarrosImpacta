@@ -10,10 +10,12 @@ import android.text.method.LinkMovementMethod
 import android.view.LayoutInflater
 import android.widget.TextView
 import androidx.fragment.app.DialogFragment
+import androidx.fragment.app.FragmentManager
 import br.com.impacta.kotlin.carrosimpacta.R
 
 class SobreDialog : DialogFragment() {
 
+    @Suppress("DEPRECATION")
     override fun onCreateDialog(savedInstanceState: Bundle?): Dialog {
         val aboutBody = SpannableStringBuilder()
         val versionName = getAppVersionName()
@@ -49,6 +51,16 @@ class SobreDialog : DialogFragment() {
     }
 
     companion object {
+        fun showSobre(fragmentManager: FragmentManager){
+            val fragmentTransaction = fragmentManager.beginTransaction()
+            val previously = fragmentManager.findFragmentByTag("about_dialog")
 
+            if(previously != null){
+                fragmentTransaction.remove(previously)
+            }
+
+            fragmentTransaction.addToBackStack(null)
+            SobreDialog().show(fragmentTransaction, "about_dialog")
+        }
     }
 }
