@@ -2,9 +2,10 @@ package br.com.impacta.kotlin.carrosimpacta
 
 import android.app.Application
 import android.util.Log
+import androidx.multidex.MultiDexApplication
 import java.lang.IllegalStateException
 
-class CarrosApplication : Application() {
+class CarrosApplication : MultiDexApplication() {
 
     private val TAG = "CarrosApplication"
 
