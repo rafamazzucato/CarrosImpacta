@@ -5,7 +5,7 @@
         xmlns:card_view="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:id="@+id/card_view"
+        android:id="@+id/cardViewCarro"
         android:layout_margin="6dp"
         app:cardElevation="3dp"
         app:cardPreventCornerOverlap="false"
@@ -13,5 +13,38 @@
         card_view:cardCornerRadius="2dp"
         card_view:cardElevaton="6dp"
         android:foreground="?attr/selectableItemBackground">
+
+    <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+        <TextView
+                android:id="@+id/textCarroNome"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"/>
+
+        <FrameLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                        android:id="@+id/imagemCarro"
+                        android:layout_width="@dimen/foto_carro_adapter_width"
+                        android:layout_height="@dimen/foto_carro_adapter_height"
+                        android:layout_gravity="center_horizontal"
+                        android:layout_marginTop="@dimen/activity_vertical_margin"/>
+
+                <ProgressBar
+                        android:id="@+id/progressCarro"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        style="@android:style/Widget.ProgressBar.Small"
+                        android:layout_gravity="center|center_vertical"
+                        android:layout_marginRight="@dimen/activity_horizontal_margin"
+                        android:gravity="center|center_vertical"
+                        android:visibility="invisible"/>
+        </FrameLayout>
+    </LinearLayout>
 
 </androidx.cardview.widget.CardView>
