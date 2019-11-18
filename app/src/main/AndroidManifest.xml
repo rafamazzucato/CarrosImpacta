@@ -40,6 +40,8 @@
                   android:parentActivityName=".activities.MainActivity"/>
         <activity android:name=".activities.SiteLivroActivity"
                   android:parentActivityName=".activities.MainActivity" />
+        <activity android:name=".activities.CarroActivity"
+                  android:parentActivityName=".activities.CarrosActivity"/>
     </application>
 
 </manifest>

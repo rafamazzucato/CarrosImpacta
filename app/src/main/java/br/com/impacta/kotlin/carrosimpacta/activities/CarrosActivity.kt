@@ -10,7 +10,7 @@ import br.com.impacta.kotlin.carrosimpacta.domains.carro.CarroService
 import br.com.impacta.kotlin.carrosimpacta.enums.TipoCarro
 import br.com.impacta.kotlin.carrosimpacta.extensions.setupToolbar
 import kotlinx.android.synthetic.main.activity_carros.*
-import org.jetbrains.anko.toast
+import org.jetbrains.anko.startActivity
 
 class CarrosActivity : BaseActivity() {
 
@@ -41,7 +41,6 @@ class CarrosActivity : BaseActivity() {
     }
 
     private fun onClickCarro (carro : Carro){
-        toast("@Clicou no carro ${carro.nome}")
+        startActivity<CarroActivity>("carro" to carro)
     }
-
 }

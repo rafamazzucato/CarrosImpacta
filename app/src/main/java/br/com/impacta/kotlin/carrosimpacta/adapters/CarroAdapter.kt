@@ -27,13 +27,17 @@ class CarroAdapter(
         val carro = carros[position]
 
         val view = holder.itemView
-        view.textCarroNome.text = carro.nome
-        view.progressCarro.visibility = View.VISIBLE
+        with(view){
+            with(carro){
+                textCarroNome.text = nome
+                progressCarro.visibility = View.VISIBLE
 
-        if(!carro.urlFoto.trim().isEmpty()){
-            view.imagemCarro.loadUrl(carro.urlFoto, view.progressCarro)
+                if(!urlFoto.trim().isEmpty()){
+                    imagemCarro.loadUrl(urlFoto, view.progressCarro)
+                }
+
+                setOnClickListener{onClick(this)}
+            }
         }
-
-        holder.itemView.setOnClickListener{onClick(carro)}
     }
 }

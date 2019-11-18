@@ -25,6 +25,7 @@ fun AppCompatActivity.setupToolbar(@IdRes viewId : Int, title : String? = null, 
     }
 
     supportActionBar?.setDisplayHomeAsUpEnabled(upNavigationBar)
+
     return supportActionBar!!
 }
 
