@@ -28,10 +28,7 @@ class CarroActivity : BaseActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.getItemId()) {
             android.R.id.home -> {
-                // app icon in action bar clicked; go home
-//                val intent = Intent(this, CarrosActivity::class.java)
-//                intent.putExtra("tipo", )
-//                startActivity(intent)
+                onBackPressed()
                 return true
             }
             else -> return super.onOptionsItemSelected(item)
