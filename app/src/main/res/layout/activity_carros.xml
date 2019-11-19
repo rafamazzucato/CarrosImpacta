@@ -5,20 +5,10 @@
               android:layout_height="match_parent">
 
     <include layout="@layout/include_toolbar" />
-    <FrameLayout android:layout_width="match_parent" android:layout_height="match_parent">
-        <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recycleCarros"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:cacheColorHint="@android:color/transparent"
-                android:clipToPadding="false"
-                android:divider="@null"
-                android:dividerHeight="0dp"
-                android:listSelector="@android:color/transparent"
-                android:scrollbarStyle="outsideOverlay"
-                android:scrollbars="vertical">
-
-        </androidx.recyclerview.widget.RecyclerView>
+    <FrameLayout
+            android:id="@+id/frameLayoutCarros"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
     </FrameLayout>
 
 </LinearLayout>

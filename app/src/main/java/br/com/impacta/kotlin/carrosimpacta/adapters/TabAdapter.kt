@@ -27,7 +27,7 @@ class TabAdapter(private val context: Context,
         return context.getString(tipo.value)
     }
 
-    private fun getTipoCarro(position: Int) = when(position){
+    private fun getTipoCarro(position: Int) = when(position) {
         0 -> TipoCarro.CLASSICOS
         1 -> TipoCarro.ESPORTIVOS
         else -> TipoCarro.LUXO
