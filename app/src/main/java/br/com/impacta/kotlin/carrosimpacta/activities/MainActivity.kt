@@ -6,8 +6,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton
 import com.google.android.material.snackbar.Snackbar
 import android.view.MenuItem
 import android.view.Menu
+import androidx.core.content.ContextCompat
 import br.com.impacta.kotlin.carrosimpacta.R
+import br.com.impacta.kotlin.carrosimpacta.adapters.TabAdapter
 import br.com.impacta.kotlin.carrosimpacta.extensions.setupToolbar
+import kotlinx.android.synthetic.main.app_bar_main.*
 
 
 class MainActivity : BaseActivity() {
@@ -18,12 +21,7 @@ class MainActivity : BaseActivity() {
         setContentView(R.layout.activity_main)
         setupToolbar(R.id.toolbar)
         setupNavDrawer()
-
-        val fab: FloatingActionButton = findViewById(R.id.fab)
-        fab.setOnClickListener { view ->
-            Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                    .setAction("Action", null).show()
-        }
+        setupViewPagerTabs()
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -39,5 +37,13 @@ class MainActivity : BaseActivity() {
             R.id.action_settings -> true
             else -> super.onOptionsItemSelected(item)
         }
+    }
+
+    private fun setupViewPagerTabs(){
+        viewPager.offscreenPageLimit = 2
+        viewPager.adapter = TabAdapter(context, supportFragmentManager)
+        tabLayout.setupWithViewPager(viewPager)
+        val cor = ContextCompat.getColor(context, R.color.white)
+        tabLayout.setTabTextColors(cor, cor)
     }
 }
