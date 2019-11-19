@@ -22,6 +22,11 @@ class MainActivity : BaseActivity() {
         setupToolbar(R.id.toolbar)
         setupNavDrawer()
         setupViewPagerTabs()
+
+        fab.setOnClickListener {
+            val snack = Snackbar.make(it, "Cliclou no botão Float", Snackbar.LENGTH_LONG)
+            snack.show()
+        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
